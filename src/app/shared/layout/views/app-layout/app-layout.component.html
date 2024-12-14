@@ -1,0 +1,21 @@
+<div class="layout-wrapper" [ngClass]="containerClass">
+    <app-topbar></app-topbar>
+    <div class="layout-sidebar">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="layout-main-container">
+        <div class="layout-main">
+            <router-outlet></router-outlet>
+        </div>
+            <app-footer></app-footer>
+    </div>
+    <div class="layout-mask"></div>
+</div>
+<p-toast>
+    <ng-template let-message pTemplate="message">
+        <div class="p-toast-message-text">
+            <div class="p-toast-summary">{{message.summary}}</div>
+            <div class="p-toast-detail" innerHtml="{{message.detail}}"></div>
+        </div>
+    </ng-template>
+</p-toast>

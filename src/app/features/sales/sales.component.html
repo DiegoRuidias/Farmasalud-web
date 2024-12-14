@@ -1,0 +1,147 @@
+<div class="card p-1 md:p-3">
+    <div class="grid w-full h-full m-0 p-0">
+        <div class="col-12 md:col-6 p-0 m-0" >
+            <div>
+                <p-dataView #dv [value]="products" [layout]="layout">
+                    <ng-template pTemplate="header">
+                        <div class="flex justify-content-between">
+                            <div class="flex justify-content-center align-items-center">
+                                <p-inputSwitch [(ngModel)]="barCode" />
+                                <label class="ml-2 mb-2" [ngClass]="{'text-blue-400 font-semibold':barCode}">Buscar con escáner de barras</label>
+                            </div>
+                            <p-dataViewLayoutOptions />
+                        </div>
+                        <span class="p-input-icon-left px w-full mt-4">
+                            <i class="pi pi-search"></i>
+                            <input pInputText placeholder="Buscar productos" class="w-full" />
+                        </span>
+                    </ng-template>
+                    <ng-template pTemplate="list" let-products>
+                        <div class="grid px-3 pt-2 surface-ground grid-nogutter overflow-auto" style="height: 35rem;">
+                            <div class="col-12 mb-2 surface-overlay" *ngFor="let item of products; let first = first">
+                                <div class="flex flex-column hover-card cursor-pointer sm:flex-row sm:align-items-center p-4 gap-3" [ngClass]="{ 'border-top-1 surface-border': !first }">
+                                    <div class="flex flex-column md:flex-row justify-content-between md:align-items-center flex-1 gap-4">
+                                        <div class="flex flex-row md:flex-column justify-content-between align-items-start gap-2">
+                                            <div>
+                                                <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
+                                                <div class="text-lg font-medium text-900 mt-2">{{ item.name }}</div>
+                                                <span>Lab: Bayer</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-column md:align-items-end gap-2">
+                                            <span class="text-xl font-semibold text-900">{{ 'S/' + item.price }}</span>
+                                            <span>Stock: 13</span>
+                                            <div class="flex flex-row-reverse md:flex-row mt-1">
+                                                <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Agregar" [disabled]="item.inventoryStatus === 'OUTOFSTOCK'" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-product pTemplate="grid" let-products>
+                        <div class="grid px-2 surface-ground grid-nogutter overflow-auto" style="height: 36rem;">
+                            <div class="col-12 surface-overlay sm:col-6 px-2 py-2" *ngFor="let product of products">
+                                <div class="p-3 border-1  surface-border border-round flex flex-column hover-card cursor-pointer">
+                                    <div class="pt-1">
+                                        <div class="flex flex-row justify-content-between align-items-start">
+                                            <div>
+                                                <span class="font-medium text-secondary text-sm">{{ product.category }}</span>
+                                                <div class="text-lg font-medium text-900 mt-1">{{ product.name }}</div>
+                                                <span>Lab: Bayer</span>
+                                            </div>
+                                            <div>
+                                                <span>Stock: 14</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-column gap-4 mt-4 ">
+                                            <span class="text-2xl font-semibold">{{ 'S/' + product.price }}</span>
+                                            <div class="flex gap-2">
+                                                <p-button icon="pi pi-shopping-cart" class="flex-auto md:flex-initial white-space-nowrap" label="Agregar" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-dataView>
+            </div>
+
+
+
+        </div>
+        <div class="col-12 md:col-6 surface-ground m-0 px-0">
+            <div class="grid p-fluid px-2 md:px-5 py-0">
+                <div class="field col-12 p-0 pt-3">
+                    <p-dropdown placeholder=":: Seleccione cliente ::" appendTo="body" class="w-full"/>
+                </div>
+            </div>
+            
+            <div class="overflow-auto surface-overlay mt-1" style="height: 19rem;">
+                <div class="grid m-0 mt-2 px-2 md:px-5">
+                    <div class="col-12 grid p-fluid border-bottom-1 m-0 py-0 mt-2 align-items-center">
+                        <div class="col-2 field py-0">
+                            <p-inputNumber [(ngModel)]="value2" inputId="stacked" [min]="1"  />
+                        </div>
+                        <div class="col-5 field py-0 text-lg text-left text-600 font-semibold ">AMOXICILINA - 950ml </div>
+                        <div class="col-4 field py-0 text-lg text-right text-600 font-semibold">S/ 8.00 </div>
+                        <div class="col-1 field py-0 text-lg text-left  text-600 font-semibold"><p-button icon="pi pi-trash" severity="danger" class="" /></div>
+                    </div>
+                    <div class="col-12 grid p-fluid border-bottom-1 m-0 py-0 mt-2 align-items-center">
+                        <div class="col-2 field py-0">
+                            <p-inputNumber [(ngModel)]="value2" inputId="stacked" [min]="1"  />
+                        </div>
+                        <div class="col-5 field py-0 text-lg text-left text-600 font-semibold ">PANADOL ANTIGRIPAL </div>
+                        <div class="col-4 field py-0 text-lg text-right text-600 font-semibold">S/ 4.00 </div>
+                        <div class="col-1 field py-0 text-lg text-left  text-600 font-semibold"><p-button icon="pi pi-trash" severity="danger" class="" /></div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="grid surface-ground px-3 align-items-center justify-content-center m-0">
+                <div class="col-6 py-2 my-0">
+                    <p-selectButton [options]="stateOptions" optionLabel="label" optionValue="value" />
+                </div>
+                <div class="col-6 py-2 my-0  text-right">
+                    <p-dropdown placeholder=":: Documento ::"/>
+                </div>
+                <div class="col-4">
+                    <label for="">Ingrese Monto</label>
+                    <p-inputGroup>
+                        <p-inputGroupAddon>S/</p-inputGroupAddon>
+                        <input type="text" pInputText placeholder="Monto" />
+                    </p-inputGroup>
+                </div>
+                <div class="col-4 text-center">
+                    <label for="" class="text-blue-400">Vuelto</label>
+                    <div class="text-xl font-bold text-blue-400">S/ 0.0</div>
+                </div>
+                <div class="col-4">
+                    <button pButton pRipple type="button"  severity="info" pTooltip="Cancelar" label="Pagos" class="text-lg w-full mt-2"></button>
+                </div>
+            </div>
+
+            <div class="grid px-2 md:px-5 mt-1">
+                <div class="col-5 py-1 text-lg text-left text-600 font-semibold">SUBTOTAL: </div>
+                <div class="col-7 py-1 text-lg text-right text-600 font-semibold">S/ 0.0 </div>
+
+                <div class="col-5 py-1 text-lg text-left text-600 font-semibold">IGV: </div>
+                <div class="col-7 py-1 text-lg text-right text-600 font-semibold">S/ 0.0 </div>
+
+                <div class="col-5 py-1 text-lg text-left text-600 font-semibold">TOTAL: </div>
+                <div class="col-7 py-1 text-lg text-right text-600 font-semibold">S/ 0.0 </div>
+            </div>
+            <div class="flex justify-content-center mt-3 gap-4 px-2 md:px-5">
+                <button pButton pRipple type="button"  severity="info" pTooltip="Pagar" label="Pagar" class="text-lg w-full"></button>
+                <button pButton pRipple type="button" severity="danger" pTooltip="Cancelar" label="Cancelar"  class="text-lg w-full"></button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
