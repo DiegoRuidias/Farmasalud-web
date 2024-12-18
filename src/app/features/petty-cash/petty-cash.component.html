@@ -1,13 +1,14 @@
 <div class="card p-2 md:p-3">
     <p-toolbar>
-        <h4 class="mt-3">Lista de cajas</h4>
-        <div>
-            <button pButton pRipple label="Nuevo"  icon="pi pi-cart-plus" class="text-white font-bold" (click)="openNew()"></button>
-        </div>
+        <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText placeholder="Ingrese RUC o nombre" class="w-full" />
+        </span>
+        <button pButton pRipple label="Nuevo" icon="pi pi-cart-plus" (input)="filterGlobal($event, 'contains')" (click)="openNew()"></button>
     </p-toolbar>
-    <p-table #tablePayments [value]="cashList" [tableStyle]="{ 'min-width': '50rem' }" [scrollable]="true"
+    <p-table #tablePettyCash [value]="cashList" [tableStyle]="{ 'min-width': '50rem' }" [scrollable]="true"
     dataKey="id" class="p-datatable-sm" [(selection)]="selectedCash" [loading]="isLoading"
-    loadingIcon="null">
+    loadingIcon="null" [globalFilterFields]="['name', 'username', 'phone', 'email']">
 
         <ng-template pTemplate="header">
             <tr>

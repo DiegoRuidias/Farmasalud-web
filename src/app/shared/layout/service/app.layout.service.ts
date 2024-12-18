@@ -30,7 +30,7 @@ export class LayoutService {
         inputStyle: 'outlined',
         menuMode: 'static',
         colorScheme: 'light',
-        theme: './layout/styles/theme/arya-orange/theme.css',
+        theme: './layout/styles/theme/lara-light-amber/theme.css',
         scale: 12,
         icon:'heroSunSolid'
     };
@@ -75,7 +75,7 @@ export class LayoutService {
             this.config.update(c => ({
                 ...c,
                 icon : 'heroMoonSolid',
-                theme : './layout/styles/theme/arya-orange/theme.css',
+                theme : './layout/styles/theme/aura-dark-amber/theme.css',
                 colorScheme : 'ligth'
             }));
 
@@ -83,7 +83,7 @@ export class LayoutService {
             this.config.update(c => ({
                 ...c,
                 icon : 'heroSunSolid',
-                theme : './layout/styles/theme/saga-orange/theme.css',
+                theme : './layout/styles/theme/lara-light-amber/theme.css',
                 colorScheme : 'dark'
             }));
         }
@@ -93,7 +93,7 @@ export class LayoutService {
         this.config.update(c => ({
             ...c,
             icon : 'heroSunSolid',
-            theme : './layout/styles/theme/saga-orange/theme.css',
+            theme : './layout/styles/theme/lara-light-amber/theme.css',
             colorScheme : 'dark'
         }));
     }

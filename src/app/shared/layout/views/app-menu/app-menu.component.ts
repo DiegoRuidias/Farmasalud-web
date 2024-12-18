@@ -187,7 +187,7 @@ export class AppMenuComponent implements OnInit{
             {
               label: 'Cerrar sesión',
               icon: 'matExitToApp',
-              routerLink: ['/config/users']
+              routerLink: ['/logout']
             },           
           
           ]

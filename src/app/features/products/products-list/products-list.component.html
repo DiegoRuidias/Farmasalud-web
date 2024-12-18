@@ -1,13 +1,17 @@
 <div class="card p-2 md:p-3">
+    <button pButton pRipple class="mr-2" label="Volver" severity="danger" icon="pi pi-arrow-left"  (click)="goLaboratory.emit()"></button>
     <p-toolbar>
-        <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input pInputText placeholder="Ingrese RUC o nombre" class="w-full" />
-        </span>
-        <button pButton pRipple label="Nuevo"  icon="pi pi-cart-plus" (input)="filterGlobal($event, 'contains')" (click)="openNew()"></button>
+        <div>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText placeholder="Ingrese RUC o nombre" (input)="filterGlobal($event, 'contains')" class="w-full" />
+            </span>
+        </div>
+
+        <button pButton pRipple label="Nuevo"  icon="pi pi-cart-plus"  (click)="openNew()"></button>
     </p-toolbar>
-    <p-table #tableLaboratory [value]="laboratoryList" [tableStyle]="{ 'min-width': '50rem' }" [scrollable]="true"
-    dataKey="id" class="p-datatable-sm" [(selection)]="selectedLaboratory" [loading]="isLoading"
+    <p-table #tableProducts [value]="productList" [tableStyle]="{ 'min-width': '50rem' }" [scrollable]="true"
+    dataKey="id" class="p-datatable-sm" [(selection)]="selectedProduct" [loading]="isLoading"
     loadingIcon="null" [globalFilterFields]="['name', 'ruc', 'description']" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5, 10, 20]">
 
         <ng-template pTemplate="header">

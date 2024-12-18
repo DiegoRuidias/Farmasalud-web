@@ -73,7 +73,6 @@ export default class AppLayoutComponent implements OnDestroy {
               this.hideProfileMenu();
           });
       
-          this.settingsService.fetchAndSaveSettings();
   }
 
   hideMenu() {

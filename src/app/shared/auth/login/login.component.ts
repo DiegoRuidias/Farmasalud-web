@@ -93,12 +93,12 @@ export default class LoginComponent implements OnInit{
 
       // this.menuService.loadMenus(this.loginService.getRole());
 
-      const settingsSuccess = await this.settingsService.fetchAndSaveSettings();
+      // const settingsSuccess = await this.settingsService.fetchAndSaveSettings();
       
-      if (!settingsSuccess) {
-        this.isLoading = false;
-        return;
-      }
+      // if (!settingsSuccess) {
+      //   this.isLoading = false;
+      //   return;
+      // }
 
       this.isLoading = false;
       this.router.navigate(['/home']);
